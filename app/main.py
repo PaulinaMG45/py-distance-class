@@ -1,5 +1,4 @@
 from __future__ import division, annotations
-import numpy as np
 
 
 class Distance:
@@ -45,7 +44,7 @@ class Distance:
 
     def __truediv__(self, new_km: int | float) -> Distance:
         if isinstance(new_km, (int, float)):
-            return Distance(np.round(self.km / new_km, 2))
+            return Distance(round(self.km / new_km, 2))
 
         return NotImplemented
 
