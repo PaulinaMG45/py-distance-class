@@ -17,7 +17,7 @@ class Distance:
     def __repr__(self) -> str:
         return f"Distance(km={self.km})"
 
-    def __add__(self, new_km: Distance | int | float) -> Tuple[int, float]:
+    def __add__(self, new_km: Distance | int | float) -> Distance:
         if isinstance(new_km, Distance):
             return Distance(self.km + new_km.km)
 
@@ -26,7 +26,7 @@ class Distance:
 
         return NotImplemented
 
-    def __iadd__(self, new_km: Distance | int | float) -> Tuple[int, float]:
+    def __iadd__(self, new_km: Distance | int | float) -> Distance:
         if isinstance(new_km, Distance):
 
             self.km += new_km.km
@@ -38,13 +38,13 @@ class Distance:
 
         return NotImplemented
 
-    def __mul__(self, new_km: Distance | int | float) -> Tuple[int, float]:
+    def __mul__(self, new_km: int | float) -> Distance:
         if isinstance(new_km, (int, float)):
             return Distance(self.km * new_km)
 
         return NotImplemented
 
-    def __truediv__(self, new_km: Distance | int | float) -> float:
+    def __truediv__(self, new_km: int | float) -> Distance:
         if isinstance(new_km, (int, float)):
             return Distance(np.round(self.km / new_km, 2))
 
